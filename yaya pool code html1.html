@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAYA POOL - Jasa Pembersihan Kolam Renang Profesional</title>
+    <style>
+        :root {
+            --primary-color: #007BFF; /* Biru Kolam Renang */
+            --secondary-color: #28a745; /* Hijau Segar */
+            --danger-color: #dc3545; /* Merah untuk 'Sebelum' */
+            --text-color: #343a40;
+            --background-color: #f8f9fa;
+            --white: #ffffff;
+            --font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        nav {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #e9ecef;
+            color: var(--primary-color);
+        }
+
+        section {
+            padding: 60px 20px;
+            margin-bottom: 20px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        /* Jasa Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .service-item {
+            border: 1px solid #dee2e6;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-item h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+        }
+
+        /* DOKUMENTASI/GALERI REVISI START */
+
+        .gallery {
+            display: grid;
+            /* Membuat 4 kolom di desktop, dan adaptif di mobile */
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px; /* Sedikit lebih renggang */
+        }
+
+        /* Wrapper baru untuk setiap gambar + teks */
+        .gallery-item {
+            text-align: center; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            border-radius: 6px;
+            overflow: hidden; 
+            background-color: var(--white);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03); /* Efek zoom saat disentuh */
+        }
+
+        /* Container gambar untuk positioning teks label */
+        .gallery-image-container {
+            position: relative; 
+        }
+
+        /* Teks Before/After di atas gambar */
+        .image-label {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%); 
+            color: var(--white);
+            padding: 4px 10px;
+            border-radius: 50px; /* Bentuk pill/kapsul */
+            font-size: 0.8em;
+            font-weight: bold;
+            z-index: 5;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Keterangan nama vila di bawah gambar */
+        .villa-name {
+            padding: 8px 5px 10px 5px;
+            margin: 0;
+            font-size: 0.9em;
+            color: var(--text-color);
+            font-weight: bold;
+            background-color: #e9ecef; /* Latar belakang abu-abu muda */
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 0; 
+            object-fit: cover;
+            aspect-ratio: 1 / 1; 
+        }
+        /* DOKUMENTASI/GALERI REVISI END */
+
+
+        /* Kontak Section */
+        .contact-info {
+            text-align: center;
+        }
+
+        .contact-info p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #1e7e34;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: var(--primary-color);
+            color: var(--white);
+            margin-top: 20px;
+        }
+
+        /* Responsif Sederhana */
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li a {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1> YAYA POOL </h1>
+        <p>Jasa Pembersihan Kolam Renang Terpercaya</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#jasa">Jasa Kami</a></li>
+            <li><a href="#dokumentasi">Hasil Kerja</a></li>
+            <li><a href="#kontak">Hubungi Kami</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <section id="jasa">
+            <h2>Layanan Pembersihan Kolam Renang</h2>
+            <p style="text-align: center; margin-bottom: 40px;">Kami menawarkan layanan lengkap untuk menjaga kolam Anda tetap jernih dan sehat.</p>
+
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3>Pembersihan Rutin Mingguan</h3>
+                    <p>Penyikatan dinding, vakum dasar, pengecekan & penyesuaian pH dan klorin.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Perawatan Khusus Kimia</h3>
+                    <p>Pengujian air mendalam dan penambahan bahan kimia profesional sesuai kebutuhan kolam.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Perawatan Mesin & Filter</h3>
+                    <p>Pencucian filter (backwash), pengecekan pompa, dan pembersihan skimmer basket.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#kontak" class="cta-button">Pesan Layanan Sekarang!</a>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="dokumentasi">
+            <h2>Galeri Hasil Kerja Kami </h2>
+            <p style="text-align: center; margin-bottom: 30px;">dokumentasi sebagai bukti kolam bersih dan jernih.</p>
+            
+            <div class="gallery">
+                
+                <div class="gallery-item">
+                    <div class="gallery-image-container">
+                        <span class="image-label" style="background-color: var(--danger-color);">BEFORE</span> 
+                        <img src="Gambar WhatsApp 2025-10-08 pukul 19.33.10_03011c89.jpg" alt="Kolam Kotor Vila Cendana">
+                    </div>
+                    <p class="villa-name">Vila Tabanan - Bali</p>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-image-container">
+                        <span class="image-label" style="background-color: var(--secondary-color);">AFTER</span> 
+                        <img src="Gambar WhatsApp 2025-10-08 pukul 19.33.10_02c60e28.jpg"alt="Kolam Bersih Vila Cendana">
+                    </div>
+                    <p class="villa-name">Vila Tabanan - Bali</p>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-image-container">
+                        <span class="image-label" style="background-color: var(--danger-color);">BEFORE</span>
+                        <img src="Gambar WhatsApp 2025-10-08 pukul 19.33.11_d072365c.jpg" alt="Kolam Kotor Vila Bintang">
+                    </div>
+                    <p class="villa-name">Vila Denpasar - Bali</p>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-image-container">
+                        <span class="image-label" style="background-color: var(--secondary-color);">AFTER</span>
+                        <img src="Gambar WhatsApp 2025-10-08 pukul 19.33.10_db3f9c52.jpg" alt="Kolam Bersih Vila Bintang">
+                    </div>
+                    <p class="villa-name">Vila Denpasar - Bali</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image-container">
+                        <span class="image-label" style="background-color: var(--danger-color);">BEFORE</span> 
+                        <img src="Gambar WhatsApp 2025-10-08 pukul 19.41.19_e4573279.jpg" alt="Kolam Kotor Vila Cendana">
+                    </div>
+                    <p class="villa-name">Vila Perean - Bali</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image-container">
+                        <span class="image-label" style="background-color: var(--secondary-color);">AFTER</span> 
+                        <img src="Gambar WhatsApp 2025-10-08 pukul 19.41.19_07d7edda.jpg"alt="Kolam Bersih Vila Cendana">
+                    </div>
+                    <p class="villa-name">Vila Perean- Bali</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image-container">
+                        <span class="image-label" style="background-color: var(--danger-color);">BEFORE</span> 
+                        <img src="gambar akhir before.jpg" alt="Kolam Kotor Vila Cendana">
+                    </div>
+                    <p class="villa-name">Vila Nyitdah - Bali</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image-container">
+                        <span class="image-label" style="background-color: var(--secondary-color);">AFTER</span> 
+                        <img src="gambar akhir after.jpg"alt="Kolam Bersih Vila Cendana">
+                    </div>
+                    <p class="villa-name">Vila Nyitdah - Bali</p>
+                 </div>
+                 <div class="gallery-item">
+                    <div class="gallery-image-container">
+                        <span class="image-label" style="background-color: var(--danger-color);">BEFORE</span> 
+                        <img src="Gambar WhatsApp 2025-10-08 pukul 19.45.11_e31525aa.jpg" alt="Kolam Kotor Vila Cendana">
+                    </div>
+                    <p class="villa-name">Vila  ISEH Karangasem - Bali</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image-container">
+                        <span class="image-label" style="background-color: var(--secondary-color);">AFTER</span> 
+                        <img src="Gambar WhatsApp 2025-10-08 pukul 19.45.11_ffe034e1.jpg"alt="Kolam Bersih Vila Cendana">
+                    </div>
+                    <p class="villa-name">Vila ISEH Karangasem - Bali</p>
+                 </div>
+                 <div class="gallery-item">
+                    <div class="gallery-image-container">
+                        <img src="Gambar WhatsApp 2025-10-08 pukul 19.16.44_31a760d7.jpg" alt="Kolam Kotor Vila Cendana">
+                        <img src="Gambar WhatsApp 2025-10-08 pukul 19.16.44_bde7617e.jpg" alt="kolam kotor vila cendana">
+                    </div>
+                    <p class="villa-name">construction pool & plumbing Ubud</p>
+                </div>
+            </div>
+            
+        </section>
+
+        <hr>
+
+        <section id="kontak">
+            <h2>Hubungi Admin (Respons Cepat!) 📱</h2>
+            <p style="text-align: center;">Siap melayani Anda. Kontak kami untuk konsultasi dan penjadwalan.</p>
+
+            <div class="contact-info">
+                <p><strong>Admin Layanan:</strong> Suci manik sari </p>
+                <p><strong>Telepon/WhatsApp:</strong> <a href="tel:+6281234567890" style="color: var(--primary-color); text-decoration: none; font-weight: bold;">+62 82340195588</a></p>
+                <p><strong>Email:</strong> <a href="mailto:info@yaya-pool.com" style="color: var(--primary-color); text-decoration: none;">yayapoolmaintanance@gmail.com</a></p>
+                
+                <a href="https://wa.me/6281234567890?text=Halo%20YAYA%20POOL,%20saya%20tertarik%20dengan%20jasa%20pembersihan%20kolam%20renang." target="_blank" class="cta-button">Chat via WhatsApp (Paling Cepat!)</a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 YAYA POOL. Semua Hak Cipta Dilindungi. Dibuat dengan semangat efisiensi.</p>
+    </footer>
+
+</body>
+</html>
